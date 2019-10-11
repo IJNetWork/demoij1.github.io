@@ -88,6 +88,9 @@ nav{
 	.button{
 		margin-top: 40px;
 	}
+	.navbar-brand, .navbar-toggler{
+		margin-top: -60px;
+	}
 }
 .h-c-s{
 	color:#22ab30;
