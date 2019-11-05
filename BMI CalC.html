@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BMI CalC</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  	<style type="text/css">
+  		section{
+  			min-height: 100vh;
+  			background-image: url("doctor.jpg");
+  			background-size: 100% 100%;
+  			background-repeat: no-repeat;
+  			padding: 100px 0;
+  		}
+  		.card{
+  			background-color: rgba(186, 255, 227, 0.4) !important;
+  			box-shadow: -1px 61px 31px -13px rgba(95,156,191,0.75);
+			-webkit-box-shadow: -1px 61px 31px -13px rgba(95,156,191,0.75);
+			-moz-box-shadow: -1px 61px 31px -13px rgba(95,156,191,0.75); 
+  		}
+  		h2{
+  			color: rgba(201, 10, 61);
+  			text-shadow: 2px 3px 2px rgba(186, 255, 227);
+  			font-size: 2.2em;
+  			animation: textani 1s linear infinite;
+  			animation-direction: alternate;
+  		}
+  		.bmival{
+  			font-size: 20px;
+  		}
+ 		label{
+ 			font-weight: bold;
+ 			font-size: 18px;
+ 		}
+  		@keyframes textani{
+  			from{
+  				transform: scale(1.2);
+  			}
+  			to{
+  				transform: scale(0.8);
+  			}
+  		}
+  		button{
+  			padding: 5px 30px;
+  			font-size: 20px !important;
+  		}
+  		.card-footer{
+  			background-color: rgba(0, 0, 0, 0.3);
+  			color: #ccde47;
+  			/*animation: colorani 1s linear infinite;*/
+  			font-size: 18px;
+  			font-weight: bold;
+  			letter-spacing: 2px;
+  			word-spacing: 1px;
+  		}
+  	</style>
+</head>
+<body>
+	<section>
+		<div class="container">
+			<div class="card">
+				<div class="card-header">
+					<h2 class="text-center">BMI Calculator</h2>
+				</div>
+				<div class="card-body w-50 m-auto">
+					<from>
+						<div class="form-group">
+							<label>Weight : </label>
+							<input type="text" name="" id="wg" class="form-control" required placeholder="Weight in Kg">
+						</div>
+						<div class="form-group">
+							<label>Height : </label>
+							<input type="text" name="" id="hg" class="form-control" required placeholder="Height in meter">
+						</div>
+						<div class="form-group">
+							<label>BMI Value : </label>
+							<input type="text" name="" id="bmiv" class="form-control bmival" >
+						</div>
+						<div>
+							<button type="submit" class="btn btn-primary" onclick="bmiCalculator()">Calculate</button>
+						</div>
+					</from>
+				</div>
+				<div class="card-footer">
+					<marquee>A healthy BMI range between 19 & 25 </marquee>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+
+<!-- 
+	<script>
+		
+		function checkbmi(){
+			var w = document.getElementById("wg").value;
+			var h = document.getElementById("hg").value;
+			var r = w/(h*h);
+			document.getElementById("bmi").innerHTML = r;
+		}
+	</script> -->
+
+
+	<script type="text/javascript">
+		document.getElementById("submit").addEventListener("click", bmiCalculator);
+		function bmiCalculator(){
+			var cm = parseInt(document.getElementById("hg").value);
+			var kg = parseFloat(document.getElementById("wg").value);
+			var bmi;
+			var newCm= parseFloat(cm/100);
+			bmi = kg / (newCm * newCm);
+			bmi = bmi.toFixed(1);
+			
+			document.getElementById("bmiv").innerHTML = bmi;
+		}
+	</script>
+	<script ></script>
+</body>
+</html>
